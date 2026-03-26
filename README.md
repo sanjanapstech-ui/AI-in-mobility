@@ -2,73 +2,84 @@
 
 This project implements a trajectory prediction model for pedestrians and cyclists using the nuScenes `v1.0-mini` dataset. The goal is to predict future positions of these agents based on their past movement history.
 
-## Project Overview
+🚗 Trajectory Prediction for Pedestrians and Cyclists
+📌 Project Overview
 
-We developed an LSTM-based neural network model to predict the `x`, `y`, and `z` coordinates of pedestrian and cyclist trajectories. The model takes a sequence of historical positions, velocities, and speeds as input and outputs a sequence of future positions.
+This project focuses on predicting the future trajectories of pedestrians and cyclists using past movement data from the nuScenes v1.0-mini dataset.
 
-## Dataset
+The system takes historical position data and predicts future coordinates over a short time horizon, improving safety and decision-making in autonomous driving systems.
 
-The project utilizes the `v1.0-mini` subset of the nuScenes dataset, a large-scale dataset for autonomous driving research. The data includes 3D bounding box annotations for various object categories, which we use to extract pedestrian and cyclist trajectories.
+🧠 Model Architecture
 
-## Features & Model
+The model is designed using a deep learning architecture with LSTM layers and a Mixture Density Network (MDN) output, as implemented in the project.
 
-*   **Feature Engineering:** Velocity (`vx`, `vy`, `vz`, `speed`) and acceleration (`ax`, `ay`, `az`, `acceleration`) were calculated from raw `x, y, z` coordinates for each instance.
-*   **Sequence Generation:** Trajectories were segmented into sequences of 10 historical steps (2 seconds) as input and 10 future steps (2 seconds) as target outputs. Input features include `x, y, z, vx, vy, speed`.
-*   **Model Architecture:** An LSTM neural network with a Dense output layer was used, built with TensorFlow/Keras.
+🔄 Architecture Details:
+Input: Sequence of past trajectory features
+(x, y, vx, vy, speed, social features)
+LSTM Layer 1: 128 units (return_sequences=True)
+LSTM Layer 2: 128 units
+Dense Layer: 64 units (ReLU activation)
+Output Layer: MDN output (multiple trajectory predictions)
+⚙️ Key Components:
+LSTM: Captures temporal dependencies
+MDN: Enables multi-modal trajectory prediction
+🔧 Training Configuration:
+Loss Function: Custom MDN Loss (Negative Log Likelihood)
+Optimizer: Adam (learning rate = 0.001)
+Epochs: 200
+Batch Size: 32
+📊 Dataset Used
 
-## Setup and Running the Code
+The project uses the nuScenes v1.0-mini dataset.
 
-### 1. Google Colab (Recommended)
-
-The easiest way to explore and run this project is through the provided Google Colab notebook. This notebook contains all the code, execution steps, and visualizations:
+📌 Dataset Details:
+Real-world autonomous driving dataset
+Includes pedestrians and cyclists
+Time-series trajectory data
+🔧 Data Processing:
+Extracted trajectories
+Generated input-output sequences
+Total sequences: 1308
+⚙️ Setup & Installation Instructions
+1. Clone the Repository
+git clone https://github.com/sanjanapstech-ui/AI-in-mobility.git
+cd AI-IN-MOBILITY
+2. Create Virtual Environment (Optional)
+python -m venv venv
+source venv/bin/activate      # Linux/Mac
+venv\Scripts\activate         # Windows
+3. Install Dependencies
+pip install -r requirements.txt
+4. Dataset Setup
+Download nuScenes v1.0-mini dataset
+Place it in your project directory
+Update dataset path if needed
+▶️ How to Run the Code
+🔹 Run on Google Colab (Recommended)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1e13clxFx-X_FZYwuuoG27EVY8l3n7m3g?usp=sharing)
 
-### 2. Local Setup
+🔹 Run Locally
+jupyter notebook
 
-To run this project locally, follow these steps:
+Then:
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone https://github.com/sanjanapstech-ui/AI-in-mobility.git
-    cd AI-IN-MOBILITY
-    ```
+Open the notebook
+Run all cells step-by-step
+📈 Example Outputs / Results
+📊 Performance:
+Test Loss (NLL): -5.9324
+Average Displacement Error (ADE): 3.2123
+Final Displacement Error (FDE): 3.0146
+📌 Output Visualization:
 
-2.  **Create a Virtual Environment (Optional but Recommended):**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scriptsctivate`
-    ```
+The model generates trajectory plots showing:
 
-3.  **Install Dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+Past trajectory
+Ground truth future
+Predicted future trajectory
 
-4.  **Download nuScenes `v1.0-mini` Dataset:**
-    You will need to download the `v1.0-mini.tgz` dataset from the official nuScenes website (requires registration) and place it in a known location. For this project, it's assumed to be accessible at `/content/drive/MyDrive/v1.0-mini.tgz` if running in Colab, or adjust the `file_path` variable in the code accordingly.
+These results show that the model successfully captures motion patterns and predicts realistic paths.
 
-5.  **Run the Notebook:**
-    Open the Jupyter Notebook (`AI in mobility.ipynb` or equivalent) and run all cells sequentially. The code will handle data extraction, processing, model training, and evaluation.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1e13clxFx-X_FZYwuuoG27EVY8l3n7m3g?usp=sharing)
 
-## Results
-
-The model was evaluated on a test set, yielding the following performance metrics:
-
-*   **Test Loss (Mean Squared Error - MSE):** 78.2580
-*   **Average Displacement Error (ADE):** 12.8910
-*   **Final Displacement Error (FDE):** 10.2079
-
-Visualizations of predicted trajectories against ground truth are generated to qualitatively assess the model's performance.
-
-## Key Files
-
-*   `requirements.txt`: Lists all Python dependencies.
-*   `README.md`: This file, providing project overview and instructions.
-*   `AI in mobility.ipynb`: The main Colab notebook containing all project code and execution steps. (Replace with your actual notebook file name)
-
-
-<>:40: SyntaxWarning: invalid escape sequence '\S'
-<>:40: SyntaxWarning: invalid escape sequence '\S'
-/tmp/ipykernel_10180/320039741.py:40: SyntaxWarning: invalid escape sequence '\S'
-  source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
