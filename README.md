@@ -1,4 +1,4 @@
-###🚗 Trajectory Prediction for Pedestrians and Cyclists
+🚗 Trajectory Prediction for Pedestrians and Cyclists
 
 📌 Project Overview
 
