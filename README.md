@@ -1,12 +1,12 @@
-🚗 Trajectory Prediction for Pedestrians and Cyclists
+**🚗 Trajectory Prediction for Pedestrians and Cyclists**
 
-📌 Project Overview
+**📌 Project Overview**
 
 This project focuses on predicting the future trajectories of pedestrians and cyclists using past movement data from the nuScenes v1.0-mini dataset.
 
 The system takes historical position data and predicts future coordinates over a short time horizon, improving safety and decision-making in autonomous driving systems.
 
-🧠 Model Architecture
+**🧠 Model Architecture**
 
 The model is designed using a deep learning architecture with LSTM layers and a Mixture Density Network (MDN) output, as implemented in the project.
 
@@ -28,7 +28,7 @@ The model is designed using a deep learning architecture with LSTM layers and a 
 - Epochs: 200
 - Batch Size: 32
   
-📊 Dataset Used
+**📊 Dataset Used**
 
 The project uses the nuScenes v1.0-mini dataset.
 📌 Dataset Details:
@@ -41,7 +41,7 @@ The project uses the nuScenes v1.0-mini dataset.
 - Generated input-output sequences
 - Total sequences: 1308
   
-⚙️ Setup & Installation Instructions
+**⚙️ Setup & Installation Instructions**
 
 1. Clone the Repository
   git clone https://github.com/sanjanapstech-ui/AI-in-mobility.git
@@ -60,7 +60,7 @@ The project uses the nuScenes v1.0-mini dataset.
 - Place it in your project directory
 - Update dataset path if needed
   
-▶️ How to Run the Code
+**▶️ How to Run the Code**
 🔹 Run on Google Colab (Recommended)
 
 👉 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1e13clxFx-X_FZYwuuoG27EVY8l3n7m3g?usp=sharing)
@@ -74,7 +74,7 @@ Then:
 
 📈 Example Outputs / Results
 
-📊 Performance:
+**📊 Performance:**
 - Test Loss (NLL): -5.9324
 - Average Displacement Error (ADE): 3.2123
 - Final Displacement Error (FDE): 3.0146
