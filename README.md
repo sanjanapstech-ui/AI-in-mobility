@@ -87,9 +87,9 @@ The model generates trajectory plots showing:
 - Ground truth future
 - Predicted future trajectory
   
-output/Screenshot 2026-03-28 190021.png
-output/Screenshot 2026-03-28 190033.png
-output/Screenshot 2026-03-28 190041.png
+![Trajectory Plot 1](output/Screenshot 2026-03-28 190021.png)
+![Trajectory Plot 2](output/Screenshot 2026-03-28 190033.png)
+![Trajectory Plot 3](output/Screenshot 2026-03-28 190041.png)
 
 These results show that the model successfully captures motion patterns and predicts realistic paths.
 
