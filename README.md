@@ -86,6 +86,7 @@ The model generates trajectory plots showing:
 - Past trajectory
 - Ground truth future
 - Predicted future trajectory
+  
 [Trajectory Plot 1](output/Screenshot%202026-03-29%20195019.png)
 
 [Trajectory Plot 2](output/Screenshot%202026-03-29%20195057.png)  
