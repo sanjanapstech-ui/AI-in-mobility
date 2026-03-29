@@ -75,9 +75,9 @@ Then:
 📈 Example Outputs / Results
 
 **📊 Performance:**
-- Test Loss (NLL): -5.9324
-- Average Displacement Error (ADE): 3.2123
-- Final Displacement Error (FDE): 3.0146
+- Test Loss (NLL): -4.8337
+- Average Displacement Error (ADE): 0.0226
+- Final Displacement Error (FDE): 0.0224
   
 📌 Output Visualization:
 
